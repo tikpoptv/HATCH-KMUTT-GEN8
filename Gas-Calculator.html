@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Greenhouse Gas Calculator</title>
+</head>
+<body>
+  <h1>Greenhouse Gas Calculator</h1>
+  <form>
+    <label for="fuel">Fuel Used (tons):</label>
+    <input type="number" id="fuel" name="fuel"><br><br>
+    <label for="emission-factor">Emission Factor (kgCO2e/ton):</label>
+    <input type="number" id="emission-factor" name="emission-factor"><br><br>
+    <button type="button" onclick="calculate()">Calculate</button><br><br>
+    <p id="result"></p>
+  </form>
+
+  <script>
+    function calculate() {
+      const fuel = parseFloat(document.getElementById('fuel').value);
+      const emissionFactor = parseFloat(document.getElementById('emission-factor').value);
+      
+      const totalEmission = fuel * emissionFactor;
+      
+      document.getElementById('result').innerHTML = `Total Greenhouse Gas Emission: ${totalEmission} kgCO2e`;
+    }
+  </script>
+</body>
+</html>
